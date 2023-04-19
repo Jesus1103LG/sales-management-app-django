@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+
+<main class="container">
+    <h1 class="text-center">Sales</h1>
+    <div class="container d-flex flex-row justify-content-between my-5 ">
+        <h3>Capital: </h3>
+        <h3>Revenue: </h3>
+    </div>
+    
+    <div class="container d-flex flex-row justify-content-between my-auto">
+        <h3>Amount sales: {{cantidad}}</h3>
+        <h3>Income total: </h3>
+        <div class="my-auto"><a href="{% url 'create_sale' %}" class="btn btn-color bg-button-hover">Create Sale</a></div>
+    </div>
+    
+    <div class="row bg-black-style rounded shadow-lg">
+        <div>
+            <h3 class="text-center my-1">Sales table</h3>
+            <table class="table table-light table-striped text-center">
+                <thead>
+                    <tr>
+                    <th>Cantidad</th>
+                    <th>Product</th>
+                    <th>Dolar total</th>
+                    <th>Bolivar cash</th>
+                    <th>Bolivar transfer</th>
+                    <th>Date sale</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for sale in sales %}
+                    <tr>
+                        <td>{{sale.amount}}</td>
+                        <td><a href="{% url 'update_sale' sale.id %}">{{sale.id_product}}</a></td>
+                        <td>{{sale.us_total}}</td>
+                        <td>{{sale.bs_cash}}</td>
+                        <td>{{sale.bs_transfer}}</td>
+                        <td>{{sale.date_sale}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+
+
+
+{% endblock %}

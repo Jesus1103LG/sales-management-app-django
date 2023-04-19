@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4 mt-5">
+            <form method="POST" class="card card-body ">
+                <h1 class="text-center">Create Sale</h1>
+                <p class="text-danger fw-bold">{{error}}</p>
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label for="id_product">Product:</label>
+                    <select name="id_product" id="id_product" class="form-select" aria-label="Default select example">
+                        <option value="{{sale_detail.id_product.id}}" selected>{{sale_detail.id_product}}</option>
+                        {% for product in products %}
+                        <option value="{{product.id}}">{{product.product_name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="amount">Amount</label>
+                    <input type="number" name="amount" id="amount" class="form-control" placeholder="Write amount of product buy" value="{{sale_detail.amount}}">
+                </div>
+                <div class="card card-body mb-1">
+                    <p class="h5 fw-bold">Metodo de pago:</p>
+                    <div class="">
+                        <label for="us_total">Dolar:</label>
+                        <input type="number" step="any" name="us_total" id="us_total" class="form-control" placeholder="Dolar" value="{{sale_detail.us_total}}">
+                    </div>
+                    <div class="d-flex gap-2">
+                        <div class="mb-3">
+                            <label for="bs_cash">Bolivar cash:</label>
+                            <input type="number" step="any" name="bs_cash" id="bs_cash" class="form-control" placeholder="Bs. Cash" value="{{sale_detail.bs_cash}}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="bs_transfer">Bolivar transfer:</label>
+                            <input type="number" step="any" name="bs_transfer" id="bs_transfer" class="form-control" placeholder="Bs. Transfer" value="{{sale_detail.bs_transfer}}">
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn btn-color bg-button-hover">Save</button>
+            </form>
+            <div class="col-md-4 offset-md-4 d-flex">
+                <form action="{% url 'delete_sale' sale_detail.id %}" method="POST" class="card card-body">
+                    {% csrf_token %}
+                    <button class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

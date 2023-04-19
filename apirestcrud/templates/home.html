@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+
+
+<header class="row bg-black-style rounded shadow-lg">
+    <div class="col-md-4">
+        <img src="{% static 'img/profile.webp' %}" alt="" class="w-100">
+    </div>
+    <div class="col-md-8 my-auto p-1">
+        <h1>I am <strong>Jesus Lopez</strong></h1>
+        <h2>I am a FullStack Developer</h2>
+        <p>+2 years of experience as an autodidact. Systems engineering student. technologies I use:
+
+        <br>- Front-end: HTML, CSS, Javascript, tailwind css, Bootstrap, Sass, Reactjs( Vite ).
+        <br>- Back-end: Nodejs, Python( Django ), SQL, MySQL.</p>
+        <a href="sales/" class="btn btn-color bg-button-hover">Go The Sales table</a>
+    </div>
+</header>
+
+<div class="row my-4 text-center">
+    <h3>This Project</h3>
+    <p>This project is a sales manager. Developed with the purpose of be integrate in the small and medium companies.</p>
+</div>
+
+
+{% endblock %}

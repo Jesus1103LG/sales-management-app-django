@@ -1,0 +1,29 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+body{
+    background: #dcdcdc;
+}
+
+.bg-green-nav, .btn-color{
+    background-color: #5B7324;
+    color: #fefefe;
+}
+
+.bg-button-hover:hover{
+    transition: .5s;
+    background: #7F9F36;
+    color: #fefefe;
+}

@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+
+<header class="row bg-black-style rounded shadow-lg">
+    <h1 class="text-center">Products</h1>
+    <table class="table table-light table-striped text-center">
+        <thead>
+            <tr>
+            <th>Product</th>
+            <th>US Price</th>
+            <th>Bs Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+                <tr>
+                    <td><a href="{% url 'update_product' product.id %}" class="enlace">{{product.product_name}}</a></td>
+                    <td>{{product.us_price}}</td>
+                    <td>{{product.bs_price}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'create_product' %}" class="btn btn-color bg-button-hover">Create product</a>
+</header>
+
+
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4 mt-5">
+            <form action="/products/create/" method="POST" class="card card-body ">
+                <h1 class="text-center">Create Product</h1>
+                <p class="text-danger fw-bold">{{error}}</p>
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label for="product_name">Product:</label>
+                    <input type="text" name="product_name" id="product_name" class="form-control" placeholder="Write the name product">
+                </div>
+                <div class="mb-3">
+                    <label for="us_price">Dolar price:</label>
+                    <input type="number" step="any" name="us_price" id="us_price" class="form-control" placeholder="Write price the product in Dolar">
+                </div>
+                <div class="mb-3">
+                    <label for="bs_price">Bolivares price:</label>
+                    <input type="number" name="bs_price" id="bs_price" class="form-control" placeholder="Write price the product in Bolivares">
+                </div>
+                <button class="btn btn-color bg-button-hover">Save</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
